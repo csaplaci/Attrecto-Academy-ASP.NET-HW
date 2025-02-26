@@ -7,7 +7,7 @@ namespace Academy_ASP_NET_Homework_Course.Controllers
     [ApiController]
     public class CourseController : ControllerBase
     {
-        public static List<Course>? Courses { get; set; }
+        public static List<Course>? Courses = new List<Course>();
 
         //Create
         [HttpPost]
