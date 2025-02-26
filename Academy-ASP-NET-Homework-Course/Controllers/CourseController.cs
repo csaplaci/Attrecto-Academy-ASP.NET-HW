@@ -10,7 +10,7 @@ namespace Academy_ASP_NET_Homework_Course.Controllers
         public static List<Course>? Courses { get; set; }
 
         //Create
-        [HttpPut]
+        [HttpPost]
         public ActionResult Post([FromBody] Course data)
         {
             if (!ModelState.IsValid)
@@ -20,7 +20,7 @@ namespace Academy_ASP_NET_Homework_Course.Controllers
         }
 
         //Read
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult<Course> Get(int id)
         {
             foreach (var course in Courses)
@@ -30,13 +30,14 @@ namespace Academy_ASP_NET_Homework_Course.Controllers
             }
             return NotFound();
         }
-        [HttpGet("{id}")]
+        [HttpGet]
         public IEnumerable<Course> Get()
         {
             return Courses;
         }
-        
+
         //Update
+        [HttpPut("{id}")]
         public ActionResult<Course> Put(int id, [FromBody] Course data)
         {
             foreach(var course in Courses)
