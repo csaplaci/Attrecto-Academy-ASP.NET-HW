@@ -7,4 +7,8 @@
     <RootNamespace>Academy_ASP_NET_Homework_Course</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.0" />
+  </ItemGroup>
+
 </Project>
