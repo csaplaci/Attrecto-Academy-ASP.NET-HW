@@ -1,3 +1,7 @@
+using Academy_ASP_NET_Homework_Course.Data;
+using Academy_ASP_NET_Homework_Course.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 namespace Academy_ASP_NET_Homework_Course
 {
     public class Program
@@ -11,6 +15,11 @@ namespace Academy_ASP_NET_Homework_Course
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+            builder.Services.AddDbContext<ApplicationDbContext>(opts
+                => opts.UseSqlite(builder.Configuration.GetConnectionString("ApplicationDbContext")));
 
             var app = builder.Build();
 
